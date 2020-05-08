@@ -1,0 +1,71 @@
+@font-face {
+    font-family: Merriweather; /* Имя шрифта */
+    src: url(fonts/Merriweather-Regular.ttf); /* Путь к файлу со шрифтом */
+}
+body, html {
+    width: 700px;
+    padding: 0px;
+    margin: 0px;
+    font-family: Merriweather;
+}
+table {
+    width: 100%;
+}
+#tableRules {
+    max-height: 250px;
+    overflow-y: scroll;
+}
+td {
+    border-bottom: 1px solid #777;
+}
+header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background: #333;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+main {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+h2,h4,p {
+    padding: 0px;
+    margin: 5px;
+    width: 100%;
+    font-weight: normal;
+}
+p {
+    font-size: 0.7em;
+}
+.withLove {
+    color: #555;
+}
+.addRule {
+    padding-top: 5px;
+    margin-top: 10px;
+    border-top: 1px solid #777;
+}
+.rulesHeader {
+    font-size: 0.7em;
+}
+.ruleInput {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+.subButton {
+    width: 100%;
+    outline: none;
+    background: #333;
+    border: 2px solid #333;
+    padding: 0px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}

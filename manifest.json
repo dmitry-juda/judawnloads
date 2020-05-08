@@ -1,0 +1,20 @@
+{
+  "name": "judawnloads",
+  "description": "Мне надоел бардак в папке загрузок, поэтому я написал это расширение.",
+  "version": "0.3",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["downloads", "storage","declarativeContent", "<all_urls>"]
+}
