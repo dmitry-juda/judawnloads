@@ -1,3 +1,2 @@
 # judawnloads
-plugin for Google Chrome
-Сортирует ваши файлы так, как нужно вам
+Плагин для Google Chrome, который сортирует ваши файлы так, как нужно вам
