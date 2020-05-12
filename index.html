@@ -6,27 +6,30 @@
     <meta charset="utf-8">
 </head>
 <body>
-<header>
-    <h2>judawnloads</h2>
-    <h4>Сортировщик твоего мусора. <span class="withLove">Сделан с любовью, не сомневайся</span></h4>
-</header>
+<aside class="sideHeader">
+    <h2><span class="red">juda</span>wnloads</h2>
+    <h4><span class="red">сорт</span>ирую твой мусор</h4>
+
+    <div class="formAddNew">
+        <input type="text" value="" id="newRuleExt" placeholder="расширения через запятую" />
+        <input type="text" value="" id="newRuleUrl" placeholder="url сайта" />
+        <input type="text" value="" id="newRuleFolder" placeholder="название папки" />
+        <button id="subButton" class="subButton">добавить</button>
+    </div>
+
+    <div class="trashbox">
+        <!--image in css-->
+    </div>
+
+    <div class="madeWithLove">
+        coded with love by <a href="https://vk.com/dmitry.ibragimov" target="_blank">ibragimov</a>
+    </div>
+
+</aside>
 <main>
     <table id="tableRules">
-        <tr class="rulesHeader">
-            <td width="20%"><h4>Файлы с расширением</h4></td>
-            <td width="40%"><h4>с сайта</h4></td>
-            <td width="40%"><h4>сохранять в</h4></td>
-        </tr>
-    </table>
-    <table class="addRule">
-        <tr>
-            <td width="20%"><input class="ruleInput" type="text" value="" id="newRuleExt" placeholder="jpeg" /></td>
-            <td width="40%"><input class="ruleInput" type="text" value="*" id="newRuleUrl" /></td>
-            <td width="40%"><input class="ruleInput" type="text" value="" id="newRuleFolder" placeholder="Название папки" /></td>
-        </tr>
     </table>
 </main>
-<button id="subButton" class="subButton">+</button>
 <script src="script.js" type="text/javascript"></script>
 </body>
 </html>

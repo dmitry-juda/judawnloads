@@ -7,11 +7,7 @@ function init() {
         if (ret.ok == 'ok') {
             store = ret.info[0];
             let table = document.getElementById("tableRules");
-            table.innerHTML = "        <tr class=\"rulesHeader\">\n" +
-                "            <td width=\"20%\">Файлы с расширением</td>\n" +
-                "            <td width=\"40%\">с сайта</td>\n" +
-                "            <td width=\"40%\">сохранять</td>\n" +
-                "        </tr>";
+            table.innerHTML = "";
             table.innerHTML += store;
 
             createListeners(ret.info[1]);

@@ -1,3 +1,12 @@
+//todo
+/*
+1. Реализовать "глубокие" настройки. Типа проверять по имени скачиваемого файла. Если он содержит, допустим,
+   слово "отчет", тогда сохранять его куда сказано.
+   По-моему это очень облегчит рутину. Как минимум мне.
+2. Посмотреть какие онлайн-антивирусы имеют api, чтобы реализовать авто-проверку небольших файлов.
+3.
+ */
+
 //Пользовательские настройки
 if (localStorage.userStore == null) {
     var userStore = {
@@ -86,6 +95,7 @@ function removeRule(ruleId) {
 
 
     localStorage.userStore = JSON.stringify(newStore)
+    initFromBackground();
 
 }
 
@@ -97,10 +107,32 @@ function selectFolderByUser(ext, url, folder) {
     let newFolder = folder;
 
     for (let rule in userStore.rules) {
+
         let thisRule = userStore.rules[rule];
+        console.log(thisRule.extension + '/' + thisRule.url + '=' + ext + '/' + url);
         let urlMatch = url.indexOf(thisRule.url);
         if (!urlMatch > -1 && url === '*') {
             return newFolder;
+        }
+        if(thisRule.url === '*' && thisRule.extension !== '*') {
+            console.log('с любого сайта сайта с расширением ' + ext);
+            let extMatch = thisRule.extension.split(',').includes(ext);
+            if (extMatch) {
+                newFolder = thisRule.folder + '/';
+                return newFolder;
+            }
+            break;
+        }
+        if(thisRule.extension === '*' && thisRule.url !== '*') {
+            console.log('любое расширение с сайта ' + url);
+            if (urlMatch > -1) {
+                //есть матч по урл
+                    newFolder = thisRule.folder + '/';
+                    return newFolder;
+                break;
+            } else {
+                continue;
+            }
         }
         if (urlMatch > -1) {
             //есть матч по урл

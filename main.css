@@ -1,71 +1,169 @@
 @font-face {
-    font-family: Merriweather; /* Имя шрифта */
-    src: url(fonts/Merriweather-Regular.ttf); /* Путь к файлу со шрифтом */
+  font-family: Montserrat;
+  src: url('./fonts/Montserrat-Regular.ttf');
 }
-body, html {
-    width: 700px;
-    padding: 0px;
-    margin: 0px;
-    font-family: Merriweather;
+@font-face {
+  font-family: MontserratLite;
+  src: url('./fonts/Montserrat-Thin.otf');
 }
-table {
-    width: 100%;
-}
-#tableRules {
-    max-height: 250px;
-    overflow-y: scroll;
-}
-td {
-    border-bottom: 1px solid #777;
-}
-header {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    background: #333;
-    color: #fff;
-    padding-left: 10px;
-    padding-right: 10px;
-
+body,
+html {
+  width: 780px;
+  padding: 0px;
+  margin: 0px;
+  background: #21262f;
+  font-family: Montserrat;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  box-sizing: border-box;
 }
 main {
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+  width: 100%;
+  padding: 20px;
+  margin: 0px;
+  height: auto;
+  box-sizing: border-box;
 }
-h2,h4,p {
-    padding: 0px;
-    margin: 5px;
-    width: 100%;
-    font-weight: normal;
+main table {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: block;
 }
-p {
-    font-size: 0.7em;
+main table tbody {
+  display: block;
+  width: 100%;
 }
-.withLove {
-    color: #555;
+main table tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.addRule {
-    padding-top: 5px;
-    margin-top: 10px;
-    border-top: 1px solid #777;
+main table td {
+  display: block;
+  width: 30%;
+  font-size: 12px;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  color: #eaeaea;
+  overflow-x: auto;
 }
-.rulesHeader {
-    font-size: 0.7em;
+main table td::-webkit-scrollbar {
+  display: none;
 }
-.ruleInput {
-    width: 100%;
-    outline: none;
-    border: none;
+main table td button {
+  border: none;
+  border-radius: 15px;
+  background: #21262f;
+  color: #21262f;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  margin-right: 10px;
 }
-.subButton {
-    width: 100%;
-    outline: none;
-    background: #333;
-    border: 2px solid #333;
-    padding: 0px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
+main table td button:hover {
+  background: #ff2e63;
+  color: #eaeaea;
 }
+main table td button:active {
+  background: #08d9d6;
+}
+.sideHeader {
+  color: #eaeaea;
+  height: 100%;
+  width: 220px;
+  padding: 20px;
+  text-align: center;
+}
+.sideHeader .red {
+  color: #ff2e63;
+}
+.sideHeader h2 {
+  font-size: 35px;
+  padding: 0;
+  margin: 0;
+}
+.sideHeader h4 {
+  font-size: 16px;
+  padding: 0 0 0 38px;
+  margin: 0;
+}
+.sideHeader .formAddNew {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 30px;
+  font-family: MontserratLite;
+}
+.sideHeader .formAddNew input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #eaeaea;
+  outline: none;
+  padding-bottom: 3px;
+  transition: all 0.1s ease-in-out;
+}
+.sideHeader .formAddNew input[type="text"]:focus {
+  border-bottom: 1px solid #ff2e63;
+  padding-left: 5px;
+}
+.sideHeader .formAddNew button {
+  width: 100%;
+  height: 30px;
+  color: #ff2e63;
+  font-size: 14px;
+  border: none;
+  background: #eaeaea;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.sideHeader .formAddNew button:hover {
+  background: #ff2e63;
+  color: #eaeaea;
+}
+.sideHeader .formAddNew button:active {
+  background: #08d9d6;
+}
+.sideHeader .trashbox {
+  width: 100px;
+  height: 100px;
+  background: url("./img/trash.png") no-repeat center;
+  background-size: contain;
+  margin: auto;
+  padding-top: 100px;
+}
+.sideHeader .madeWithLove {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  color: #333842;
+}
+.sideHeader .madeWithLove a {
+  text-decoration: none;
+  color: #08d9d6;
+  opacity: 0.3;
+  transition: all 0.1s ease-in-out;
+}
+.sideHeader .madeWithLove a:hover {
+  opacity: 1;
+}
+.sideHeader .madeWithLove a:active {
+  color: #ff2e63;
+}
+/*# sourceMappingURL=main.css.map */

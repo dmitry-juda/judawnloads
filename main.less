@@ -1,0 +1,177 @@
+@font-face {
+  font-family: Montserrat;
+  src: url('./fonts/Montserrat-Regular.ttf');
+}
+@font-face {
+  font-family: MontserratLite;
+  src: url('./fonts/Montserrat-Thin.otf');
+}
+
+
+body, html {
+  width: 780px;
+  padding: 0px;
+  margin: 0px;
+  background: #21262f;
+  font-family: Montserrat;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+  margin: 0px;
+  height: auto;
+  box-sizing: border-box;
+  table {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    tbody {
+      display: block;
+      width: 100%;
+    }
+    tr {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      margin: 0px;
+      background: rgba(0,0,0,.1);
+      border-radius: 15px;
+      padding: 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    td {
+      display: block;
+      width: 30%;
+      margin: 0px;
+      //border: 1px dashed red;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+      color: #eaeaea;
+      overflow-x: auto;
+      &::-webkit-scrollbar { display: none}
+      button {
+        border: none;
+        border-radius: 15px;
+        background: #21262f;
+        color: #21262f;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        outline: none;
+        margin-right: 10px;
+        &:hover {
+          background: #ff2e63;
+          color: #eaeaea;
+        }
+        &:active {
+          background: #08d9d6;
+        }
+      }
+    }
+  }
+
+}
+.sideHeader {
+  color: #eaeaea;
+  height: 100%;
+  width: 220px;
+  padding: 20px;
+  text-align: center;
+  .red {
+    color: #ff2e63;
+  }
+  h2 {
+    font-size: 35px;
+    padding: 0;
+    margin: 0;
+  }
+  h4 {
+    font-size: 16px;
+    padding: 0 0 0 38px;
+    margin: 0;
+  }
+
+  .formAddNew {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 30px;
+    font-family: MontserratLite;
+    input[type="text"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #eaeaea;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #eaeaea;
+      outline: none;
+      padding-bottom: 3px;
+      transition: all .1s ease-in-out;
+      &:focus {
+        border-bottom: 1px solid #ff2e63;
+        padding-left: 5px;
+      }
+    }
+    button {
+      width: 100%;
+      height: 30px;
+      color: #ff2e63;
+      font-size: 14px;
+      border: none;
+      background: #eaeaea;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      &:hover {
+        background: #ff2e63;
+        color: #eaeaea;
+      }
+      &:active {
+        background: #08d9d6;
+      }
+    }
+
+
+  }
+
+  .trashbox {
+    width: 100px;
+    height: 100px;
+    background: url("./img/trash.png") no-repeat center;
+    background-size: contain;
+    margin: auto;
+    padding-top: 100px;
+  }
+
+  .madeWithLove {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: #333842;
+    a {
+      text-decoration: none;
+      color: #08d9d6;
+      opacity: 0.3;
+      transition: all .1s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+      &:active {
+        color: #ff2e63;
+      }
+    }
+  }
+}
+
