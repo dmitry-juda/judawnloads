@@ -7,6 +7,17 @@
 3.
  */
 
+//Программная инъекция:
+chrome.runtime.onMessage.addListener(
+    function(message, callback) {
+        if (message == "runContentScript"){
+            chrome.tabs.executeScript({
+                file: 'script.js'
+            });
+        }
+    });
+
+
 //Пользовательские настройки
 if (localStorage.userStore == null) {
     var userStore = {
