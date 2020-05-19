@@ -47,6 +47,7 @@ function addRule() {
     let fileExt = document.getElementById("newRuleExt").value;
     let newRuleUrl = document.getElementById("newRuleUrl").value;
     let newRuleFolder = document.getElementById("newRuleFolder").value;
+    let groupByDate = document.getElementById("groupByDate").value;
 
     if (fileExt === '' || newRuleUrl === '' || newRuleFolder === '') {
         return false;
@@ -55,7 +56,8 @@ function addRule() {
     let form = {
         ext: fileExt,
         url: newRuleUrl,
-        folder: newRuleFolder
+        folder: newRuleFolder,
+        group: groupByDate
     }
 
     chrome.runtime.sendMessage({type: 'addRule', info: form}, function (ret) {

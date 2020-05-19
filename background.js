@@ -4,7 +4,7 @@
    слово "отчет", тогда сохранять его куда сказано.
    По-моему это очень облегчит рутину. Как минимум мне.
 2. Посмотреть какие онлайн-антивирусы имеют api, чтобы реализовать авто-проверку небольших файлов.
-3.
+3. Реализовать группировку по дате
  */
 
 //Программная инъекция:
@@ -50,7 +50,7 @@ function initFromBackground() {
 
 }
 
-function addRule(ext, url, folder) {
+function addRule(ext, url, folder, group) {
     let newStore = JSON.parse(localStorage.userStore);
     if(newStore == null) {
         newStore = {
@@ -64,16 +64,23 @@ function addRule(ext, url, folder) {
         return false;
     }
 
+    console.log('addRule group',group);
+
     let newRule = {
         extension: ext,
         url: url,
         folder: folder,
+        group: group,
         id: String(Math.random())
     };
+
+    console.log('группировать', group);
 
     newStore.rules.push(newRule);
 
     localStorage.userStore = JSON.stringify(newStore)
+
+    console.log('хранилище после addRule',JSON.parse(localStorage.userStore));
 
 }
 
@@ -115,21 +122,33 @@ function selectFolderByUser(ext, url, folder) {
 
     userStore = JSON.parse(localStorage.userStore);
 
+    console.log('стор при выборе папки',userStore);
+
     let newFolder = folder;
 
     for (let rule in userStore.rules) {
 
         let thisRule = userStore.rules[rule];
+        let afterName = '';
+        if(thisRule.group === 'on') {
+            console.log('включена группировка по дате');
+            let date = new Date();
+            let day = date.getDay();
+            let month = date.getMonth();
+            if(day < 10) { day = '0' + day; }
+            if(month < 10) { month = '0' + month; }
+            afterName = day + '.' + month + '.' + date.getFullYear() + '/';
+        }
         console.log(thisRule.extension + '/' + thisRule.url + '=' + ext + '/' + url);
         let urlMatch = url.indexOf(thisRule.url);
         if (!urlMatch > -1 && url === '*') {
-            return newFolder;
+            return newFolder + afterName;
         }
         if(thisRule.url === '*' && thisRule.extension !== '*') {
             console.log('с любого сайта сайта с расширением ' + ext);
             let extMatch = thisRule.extension.split(',').includes(ext);
             if (extMatch) {
-                newFolder = thisRule.folder + '/';
+                newFolder = thisRule.folder + '/' + afterName;
                 return newFolder;
             }
             break;
@@ -138,7 +157,7 @@ function selectFolderByUser(ext, url, folder) {
             console.log('любое расширение с сайта ' + url);
             if (urlMatch > -1) {
                 //есть матч по урл
-                    newFolder = thisRule.folder + '/';
+                    newFolder = thisRule.folder + '/' + afterName;
                     return newFolder;
                 break;
             } else {
@@ -149,7 +168,7 @@ function selectFolderByUser(ext, url, folder) {
             //есть матч по урл
             let extMatch = thisRule.extension.split(',').includes(ext);
             if (extMatch) {
-                newFolder = thisRule.folder + '/';
+                newFolder = thisRule.folder + '/' + afterName;
                 return newFolder;
             }
             break;
@@ -226,7 +245,7 @@ chrome.runtime.onMessage.addListener(
         }
 
         if (req.type === 'addRule') {
-            addRule(req.info.ext,req.info.url,req.info.folder);
+            addRule(req.info.ext,req.info.url,req.info.folder,req.info.group);
             response({ok: "ok"});
         }
 

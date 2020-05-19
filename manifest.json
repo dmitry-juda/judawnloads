@@ -1,7 +1,7 @@
 {
   "name": "judawnloads",
-  "description": "Мне надоел бардак в папке загрузок, поэтому я написал это расширение.",
-  "version": "0.4",
+  "description": "Расширение группирует ваши загрузки по соответствующим папкам.",
+  "version": "0.5",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.js"]
