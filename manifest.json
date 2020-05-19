@@ -7,11 +7,13 @@
     "scripts": ["background.js"]
   },
   "icons": {
-    "48": "48x48.png"
+    "16": "ico16.png",
+    "48": "ico48.png",
+    "128": "ico128.png"
   },
   "browser_action": {
     "default_popup": "index.html",
-    "default_icon": "48x48.png"
+    "default_icon": "ico128.png"
   },
   "permissions": ["downloads"]
 }
